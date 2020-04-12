@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,9 @@ Route::get('/', 'BlogController@index');
     return view('blog.isi_post');
 });*/
 Route::get('/isi-post/{slug}', 'BlogController@isi_blog')->name('blog.isi');
+Route::get('/list-post', 'BlogController@list_blog')->name('blog.list');
+Route::get('/list-categor/{category}', 'BlogController@list_category')->name('blog.category');
+Route::get('/cari', 'BlogController@cari')->name('blog.cari');
 
 
 Route::group(['middleware' => 'auth'], function () {
